@@ -1,0 +1,45 @@
+CHANGELOG:
+
+v1.0 - First Major Release
+  - Updated network API to match the new standard; this also requires the
+    latest network version.  (Recent versions of network crashed some functions
+    when backend modification of network objects was attempted.)
+
+v0.5 - Internal Release
+  - Added a new approximation method to rnspatial.grid, allowing the use of
+    a constant probability approximation where the probability surface is
+    sufficiently smooth.  This should greatly improve performance on densely
+    populated landscapes for which simple exclusion of cells with low
+    interaction probability is insufficient.
+  - Made a simple change to rnspatial.grid to speed computation on very
+    sparsely populated surfaces (with many empty grid entries).
+
+v0.4 - Internal Release
+  - Changed the way that tieVolume creates sparse matrices; apparently,
+    elementwise addition is so amazingly slow that it was dramatically
+    impairing performance.  A fast method is now employed (as well as an
+    amusing R implementation of a stack -- not something that R does well,
+    but there is a way...).
+  - Fixed an obscure bug in rspop involving spatialPolygons.
+
+v0.3 - Internal Release
+  - Added rnspatial.rtree, moved old rnspatial to rnspatial.grid.  Method 
+    control is now governed by a generic shell routine (called rnspatial).
+    Note that this will break code that called rnspatial using positional
+    parameters for the "model" argument, since this has been right-shifted.
+    Otherwise, everything should work (and the grid method is still the 
+    default, at least for the time being).
+  - Added C-level minimum distance code for rectilinear bounding boxes under
+    Minkowski metrics.
+
+v0.2 - Internal Release
+  - Started actually keeping track of releases.
+  - Added new sna edgelist output option to rnspatial.  This saves on overhead
+    for very large, sparse graphs (especially when they will be sent to sna
+    routines for analysis, anyway).
+  - Made some internal tweaks that might solve an alleged memory corruption
+    problem within tieVolume.rtree for large matrices.  These are not true
+    bug fixes (more "conservative code changes"), and thus may or may not
+    have any effect.
+
+v0.1 - Initial Internal Release
