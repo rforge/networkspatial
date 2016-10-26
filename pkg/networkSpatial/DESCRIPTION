@@ -4,9 +4,9 @@ Date: 2016-05-06
 Title: Tools for the Generation and Analysis of Spatially-embedded Networks
 Author: Carter T. Butts <buttsc@uci.edu>, Zack W. Almquist<almquist@umn.edu>
 Maintainer: Carter T. Butts <buttsc@uci.edu>
-Depends: R (>= 2.0.0), network (1.14), sna (>= 2.0), spatstat, maptools, sp
+Depends: R (>= 2.0.0), network, sna (>= 2.0), spatstat, maptools, sp
 LinkingTo: network
-Suggests: rgdal, Matrix, UScensus2000tract, UScensus2000cdp, UScensus2000blkgrp
+Suggests: rgdal, Matrix, UScensus2000tract, UScensus2000cdp
 Description: Provides tools for simulation and analysis of spatially-embedded networks, including spatial Bernoulli graph generation, SIF inference, and more.
 License: GPL (>=2)
 URL: TBD
