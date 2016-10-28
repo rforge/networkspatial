@@ -35,29 +35,29 @@ genpopIndv<-function(spa,total.pop){lapply(spa@data[,total.pop],function(x){cbin
 #################
 ## Register S3
 #S3method(rspop, SpatialPolygonDataFrame)
-rspop <- function(geo, ...){
-	UseMethod("rspop",geo)
+rspop <- function(poly, ...){
+	UseMethod("rspop",poly)
 	}
 
-rspop.default <-function(geo,...)
+rspop.default <-function(poly,...)
 {
   stop("Must be a Spatial Polygon")
 }
 
-rspop.SpatialPolygonDataFrame<-function(geo,method = c("uniform", "halton"), stack.rad = 10,stack.dis = 4, household.jitter = 5,longLat=TRUE,household=TRUE,list.pop){
+rspop.SpatialPolygonDataFrame<-function(poly,method = c("uniform", "halton"), stack.rad = 10,stack.dis = 4, household.jitter = 5,longLat=TRUE,household=TRUE,list.pop){
 #require(rgdal)
 if(household){
-	pop<-do.call("genpop",c(list(geo),list.pop))
+	pop<-do.call("genpop",c(list(poly),list.pop))
 }else{
-	pop<-do.call("genpopIndv",c(list(geo),list.pop))
+	pop<-do.call("genpopIndv",c(list(poly),list.pop))
 }
 
-projection.point=coordinates(buildBB(geo))
-coord<-rspop(geo,pop,method=method,stack.rad=stack.rad,stack.dis=stack.dis,projection.point=projection.point)
+projection.point=coordinates(buildBB(poly))
+coord<-rspop(poly,pop,method=method,stack.rad=stack.rad,stack.dis=stack.dis,projection.point=projection.point)
 
 if(longLat){
 coordLL<-sp::SpatialPoints(cbind(coord$x,coord$y),proj4string=sp::CRS(paste("+proj=ortho +lat_0=",projection.point[2], " +lon_0=", projection.point[1],collapse = "", sep = "")))
-coordLL<-sp::coordinates(sp::spTransform(coordLL,sp::CRS(proj4string(geo))))
+coordLL<-sp::coordinates(sp::spTransform(coordLL,sp::CRS(proj4string(poly))))
 coord$x<-coordLL[,1]
 coord$y<-coordLL[,2]
 }
