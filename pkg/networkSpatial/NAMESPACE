@@ -1,4 +1,4 @@
-import(network,spatstat,Matrix,maptools)
+import(network)
 
 useDynLib(networkSpatial)
 
@@ -7,6 +7,9 @@ importFrom("graphics", "box", "plot", "plot.new", "plot.window")
 importFrom("stats", "runif")
 importFrom("sp")
 importFrom("sna")
+importFrom("spatstat")
+importFrom("Matrix")
+importFrom("maptools")
 importFrom("rgdal","spTransform")
 # Export all names that do not begin with a dot.
 exportPattern("^[^\\.]")
