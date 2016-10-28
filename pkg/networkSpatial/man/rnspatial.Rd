@@ -48,14 +48,14 @@ rnspatial.rtree(n, coord, param, model = c("powlaw", "atpowlaw", "explaw",
 \code{rnspatial} can draw spatial Bernoulli graphs with a range of spatial interaction functions (selected by \code{model}).  Currently supported variants are as follows:
 
 \describe{
-\item{\code{powlaw}}{Power law model of the form \eqn{\frac{\theta_1}{(1+\theta_2 d)^{\theta_3}}}{theta_1/(1+theta_2 d)^theta_3}.}
-\item{\code{atpowlaw}}{Attenuated power law of the form \eqn{\frac{\theta_1}{1+(\theta_2 d)^{\theta_3}}}{theta_1/(1+(theta_2 d)^theta_3)}.}
-\item{\code{explaw}}{Exponential decay law of the form \eqn{\theta_1\exp(-\theta_2 d)}{theta_1 exp(-theta_2 d)}.}
-\item{\code{loglaw}}{Logistic decay law of the form \eqn{\frac{(1+\theta_3)\theta_1}{1+\theta_3\exp(\theta_2 d)}}{(1 + theta_3) theta_1/(1 + theta_3 exp(theta_2 d))}.}
-\item{\code{atanlaw}}{Arctangent law of the form \eqn{\theta_1(1-2/\pi \atan(theta_2d))}{theta_1 (1 - 2/Pi atan(theta_2 d))}.}
-\item{\code{tfaw}}{Truncated linear law of the form \eqn{\max(\min(\theta_3 - \theta_2 d, \theta_1), \theta_4\theta1)}.}
-\item{\code{fflaw}}{Fixed, \dQuote{disk-like} law in which tie probability is equal to \eqn{\theta_1} for \eqn{d<\theta_2}, otherwise \eqn{\theta_3 \theta1}.}
-\item{\code{cplaw}}{Constant probability law (null model), in which tie probability is fixed at \eqn{\theta_1} for all \eqn{d}.}
+\item{\code{powlaw}}{Power law model of the form }%\eqn{\frac{\theta_1}{(1+\theta_2 d)^{\theta_3}}}{theta_1/(1+theta_2 d)^theta_3}.}
+\item{\code{atpowlaw}}{Attenuated power law of the form}% \eqn{\frac{\theta_1}{1+(\theta_2 d)^{\theta_3}}}{theta_1/(1+(theta_2 d)^theta_3)}.}
+\item{\code{explaw}}{Exponential decay law of the form}% \eqn{\theta_1\exp(-\theta_2 d)}{theta_1 exp(-theta_2 d)}.}
+\item{\code{loglaw}}{Logistic decay law of the form }%\eqn{\frac{(1+\theta_3)\theta_1}{1+\theta_3\exp(\theta_2 d)}}{(1 + theta_3) theta_1/(1 + theta_3 exp(theta_2 d))}.}
+\item{\code{atanlaw}}{Arctangent law of the form }%\eqn{\theta_1(1-2/\pi \atan(theta_2d))}{theta_1 (1 - 2/Pi atan(theta_2 d))}.}
+\item{\code{tfaw}}{Truncated linear law of the form}% \eqn{\max(\min(\theta_3 - \theta_2 d, \theta_1), \theta_4\theta1)}.}
+\item{\code{fflaw}}{Fixed, \dQuote{disk-like} law in which tie probability is equal to}% \eqn{\theta_1} for \eqn{d<\theta_2}, otherwise \eqn{\theta_3 \theta1}.}
+\item{\code{cplaw}}{Constant probability law (null model), in which tie probability is fixed at}% \eqn{\theta_1} for all \eqn{d}.}
 }
 \eqn{\theta}{theta} values in the above correspond to the entries of \code{param}, with \eqn{d} corresponding to the distance between vertices.  (In the directed case, both edges of the dyad are drawn independently.)  The distance employed can be any Minkowski metric on \code{coord}, the exponent being controlled by \code{minkowski.exp}.  
 
