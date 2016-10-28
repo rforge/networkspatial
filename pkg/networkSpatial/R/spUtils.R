@@ -35,11 +35,11 @@ genpopIndv<-function(spa,total.pop){lapply(spa@data[,total.pop],function(x){cbin
 #################
 ## Register S3
 #S3method(rspop, SpatialPolygonDataFrame)
-rspop <- function(poly, ...){
-	UseMethod("rspop",poly)
+rspop <- function(geo, ...){
+	UseMethod("rspop",geo)
 	}
 
-rspop.default <-function(poly,...)
+rspop.default <-function(geo,...)
 {
   stop("Must be a Spatial Polygon")
 }

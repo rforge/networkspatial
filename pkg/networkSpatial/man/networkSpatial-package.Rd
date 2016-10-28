@@ -18,7 +18,7 @@ LazyLoad: \tab yes\cr
 
 }
 \author{
-Carter T. Butts <buttsc@uci.edu>, Zack W. Almquist <almquist@uci.edu>
+Carter T. Butts <buttsc@uci.edu>, Zack W. Almquist <almquist@umn.edu>
 Maintainer: Carter T. Butts <buttsc@uci.edu>
 
 }
