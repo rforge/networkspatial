@@ -13,7 +13,7 @@
 \references{
 Almquist, Zack W. (2010). US Census Spatial and Demographic Data in R: The UScensus2000 Suite of Packages. Journal of Statistical Software, 37(6), 1--31.
 
-Almquist, Zack W. and Butts, Carter T. (2012). Point process models for household distributions within small areal units. Demographic Research, 26(12), 593Ð632.
+Almquist, Zack W. and Butts, Carter T. (2012). Point process models for household distributions within small areal units. Demographic Research, 26(12), 593--632.
 }
 \author{Zack W. Almquist \email{TBD@umn.edu}, Carter T. Butts \email{buttsc@uci.edu}}
 \arguments{\item{geo}{\code{\link{SpatialPolygons}}}
