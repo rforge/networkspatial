@@ -34,8 +34,12 @@ genpopIndv<-function(spa,total.pop){lapply(spa@data[,total.pop],function(x){cbin
 ## test2<-rspop.SpatialPolygonDataFrame(geo=poly,method="uniform",list.pop=list(total.pop="pop2000"),household=FALSE)
 #################
 
+ 
+S3method(rspop, SpatialPolygonDataFrame)
+
+
 rspop.SpatialPolygonDataFrame<-function(geo,method = c("uniform", "halton"), stack.rad = 10,stack.dis = 4, household.jitter = 5,longLat=TRUE,household=TRUE,list.pop){
-require(rgdal)
+#require(rgdal)
 if(household){
 	pop<-do.call("genpop",c(list(geo),list.pop))
 }else{
@@ -46,8 +50,8 @@ projection.point=coordinates(buildBB(geo))
 coord<-rspop(geo,pop,method=method,stack.rad=stack.rad,stack.dis=stack.dis,projection.point=projection.point)
 
 if(longLat){
-coordLL<-SpatialPoints(cbind(coord$x,coord$y),proj4string=CRS(paste("+proj=ortho +lat_0=",projection.point[2], " +lon_0=", projection.point[1],collapse = "", sep = "")))
-coordLL<-coordinates(spTransform(coordLL,CRS(proj4string(geo))))
+coordLL<-sp::SpatialPoints(cbind(coord$x,coord$y),sp::proj4string=sp::CRS(paste("+proj=ortho +lat_0=",projection.point[2], " +lon_0=", projection.point[1],collapse = "", sep = "")))
+coordLL<-sp::coordinates(sp::spTransform(coordLL,sp::CRS(proj4string(geo))))
 coord$x<-coordLL[,1]
 coord$y<-coordLL[,2]
 }
@@ -63,24 +67,24 @@ coord
 ################
 
 buildBB<-function(polygon,bb.epsilon=0){
-  	temp1 <- bbox(polygon)
+  	temp1 <- sp::bbox(polygon)
         temp1[1, 1] <- temp1[1, 1] - bb.epsilon
         temp1[1, 2] <- temp1[1, 2] + bb.epsilon
         temp1[2, 1] <- temp1[2, 1] - bb.epsilon
         temp1[2, 2] <- temp1[2, 2] + bb.epsilon
         temp <- matrix(c(temp1[1, 1], temp1[2, 1], temp1[1, 2], 
             temp1[2, 1], temp1[1, 2], temp1[2, 2], temp1[1, 1], 
-            temp1[2, 2]), nc = 2, nr = 4, byrow = TRUE)
-        pol<-Polygon(rbind(temp, c(temp[1,1],temp[1,2])), hole = FALSE)
-        pol<-Polygons(list(pol),"ID")
-        SpatialPolygons(list(pol), proj4string = CRS("+proj=longlat +datum=NAD83"))
+            temp1[2, 2]), ncol = 2, nrow = 4, byrow = TRUE)
+        pol<-sp::Polygon(rbind(temp, c(temp[1,1],temp[1,2])), hole = FALSE)
+        pol<-sp::Polygons(list(pol),"ID")
+        sp::SpatialPolygons(list(pol), proj4string = sp::CRS("+proj=longlat +datum=NAD83"))
   }
 
 orthoProj<-function(polygon,pp){
-	require(rgdal)
+	#require(rgdal)
 	projection.point<-pp
-	trans<-CRS(paste("+proj=ortho +lat_0=",projection.point[2], " +lon_0=", projection.point[1],collapse = "", sep = ""))
-	spTransform(polygon,trans)
+	trans<-sp::CRS(paste("+proj=ortho +lat_0=",projection.point[2], " +lon_0=", projection.point[1],collapse = "", sep = ""))
+	rgdal::spTransform(polygon,trans)
 }
 
 gplot.spatial<-function(x,coord,bb,list.edges,list.vertex,background=NULL,list.background,list.axis=list(one=list(side=1,cex.axis=.4,lwd=.5,las=1),two=list(side=2,cex.axis=.4,lwd=.5)),axis=TRUE,bg=NULL){

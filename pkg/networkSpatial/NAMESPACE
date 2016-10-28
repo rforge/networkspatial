@@ -4,6 +4,7 @@ useDynLib(networkSpatial)
 
 importFrom(utils, packageDescription)
 importFrom("graphics", "box", "plot", "plot.new", "plot.window")
+importFrom("methods", "as", "slot")
 importFrom("stats", "runif")
 # Export all names that do not begin with a dot.
 exportPattern("^[^\\.]")

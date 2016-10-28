@@ -60,7 +60,7 @@ tieVolume.SpatialPolygons<-function(poly,pop,poly2=NULL,pop2=NULL,param,model=c(
 
 #Compute the expected tie volumes among a set of polygons
 tieVolumertree<-function(poly,pop,param,model=c("powlaw","atpowlaw","explaw","loglaw","atanlaw","tflaw","fflaw","cplaw"),tol.pa=c(1e-2,1e-8),tol.mc=c(1e-2,1e-8),trunc=1e-10,gd.mode=c("ellipsoid","sphere"),nq.mode=c("halton","uniform"),maxiter=1e5,log=FALSE){
-  require(Matrix)
+  #require(Matrix)
   #Identify the model, and computation modes
   model<-switch(match.arg(model),
     powlaw=1,

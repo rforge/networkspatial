@@ -143,7 +143,7 @@ rqhalton<-function(n,d=1,min=rep(0,d),max=rep(1,d),base=listPrimes(d,start=2),se
 #data, using either uniform or quasi-random within-block placement and
 #stacking.  Note that calculations are in meters here.
 rspop<-function(geo,pop,method=c("uniform","halton"),stack.rad=10,stack.dis=4,household.jitter=5,projection.point=NULL){
-  require(rgdal)
+  #require(rgdal)
   #First, fix projection information for raw shape information
   if(is.na(proj4string(geo)))
     proj4string(geo)<-CRS("+proj=longlat +datum=WGS84")
