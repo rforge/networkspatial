@@ -48,8 +48,8 @@ projection.point=coordinates(buildBB(geo))
 coord<-rspop(geo,pop,method=method,stack.rad=stack.rad,stack.dis=stack.dis,projection.point=projection.point)
 
 if(longLat){
-coordLL<-sp::SpatialPoints(cbind(coord$x,coord$y),sp::proj4string=sp::CRS(paste("+proj=ortho +lat_0=",projection.point[2], " +lon_0=", projection.point[1],collapse = "", sep = "")))
-coordLL<-sp::coordinates(sp::spTransform(coordLL,CRS(proj4string(geo))))
+coordLL<-sp::SpatialPoints(cbind(coord$x,coord$y),proj4string=sp::CRS(paste("+proj=ortho +lat_0=",projection.point[2], " +lon_0=", projection.point[1],collapse = "", sep = "")))
+coordLL<-sp::coordinates(sp::spTransform(coordLL,sp::CRS(proj4string(geo))))
 coord$x<-coordLL[,1]
 coord$y<-coordLL[,2]
 }
