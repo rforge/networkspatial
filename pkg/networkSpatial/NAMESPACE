@@ -1,4 +1,4 @@
-import(network,spatstat,Matrix,maptools,sna)
+import(network,spatstat,Matrix,maptools)
 
 useDynLib(networkSpatial)
 
