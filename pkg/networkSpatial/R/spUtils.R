@@ -33,10 +33,8 @@ genpopIndv<-function(spa,total.pop){lapply(spa@data[,total.pop],function(x){cbin
 ### test<-rspop.SpatialPolygonDataFrame(geo=poly,method="uniform",list.pop=list(hh=c("hh.1person","hh.2person","hh.3person", "hh.4person","hh.5person","hh.6person"),total.pop="pop2000",hh.size=6))
 ## test2<-rspop.SpatialPolygonDataFrame(geo=poly,method="uniform",list.pop=list(total.pop="pop2000"),household=FALSE)
 #################
-
- 
+## Register S3
 S3method(rspop, SpatialPolygonDataFrame)
-
 
 rspop.SpatialPolygonDataFrame<-function(geo,method = c("uniform", "halton"), stack.rad = 10,stack.dis = 4, household.jitter = 5,longLat=TRUE,household=TRUE,list.pop){
 #require(rgdal)
