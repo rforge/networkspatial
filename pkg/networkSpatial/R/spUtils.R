@@ -35,6 +35,14 @@ genpopIndv<-function(spa,total.pop){lapply(spa@data[,total.pop],function(x){cbin
 #################
 ## Register S3
 #S3method(rspop, SpatialPolygonDataFrame)
+rspop <- function(poly, ...){
+	UseMethod("rspop",poly)
+	}
+
+rspop.default <-function(poly,...)
+{
+  stop("Must be a Spatial Polygon")
+}
 
 rspop.SpatialPolygonDataFrame<-function(geo,method = c("uniform", "halton"), stack.rad = 10,stack.dis = 4, household.jitter = 5,longLat=TRUE,household=TRUE,list.pop){
 #require(rgdal)

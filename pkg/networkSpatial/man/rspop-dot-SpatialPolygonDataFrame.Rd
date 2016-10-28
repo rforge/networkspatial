@@ -15,7 +15,7 @@ Almquist, Zack W. (2010). US Census Spatial and Demographic Data in R: The UScen
 
 Almquist, Zack W. and Butts, Carter T. (2012). Point process models for household distributions within small areal units. Demographic Research, 26(12), 593--632.
 }
-\author{Zack W. Almquist \email{TBD@umn.edu}, Carter T. Butts \email{buttsc@uci.edu}}
+\author{Zack W. Almquist \email{almquist@umn.edu}, Carter T. Butts \email{buttsc@uci.edu}}
 \arguments{\item{geo}{\code{\link{SpatialPolygons}}}
 \item{method}{\code{string}, "uniform" or "halton"}
 \item{stack.rad}{\code{numeric} default set to 10}
